@@ -6,7 +6,7 @@
 
     <groupId>io.github.dreamvoid</groupId>
     <artifactId>ExpLimit</artifactId>
-    <version>1.0</version>
+    <version>1.0.1</version>
 
     <repositories>
         <!-- This adds the Spigot Maven repository to the build -->
