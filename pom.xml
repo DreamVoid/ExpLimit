@@ -4,9 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>groupId</groupId>
-    <artifactId>Dreamvoid Bukkit Template</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>io.github.dreamvoid</groupId>
+    <artifactId>ExpLimit</artifactId>
+    <version>1.0</version>
+
+    <repositories>
+        <!-- This adds the Spigot Maven repository to the build -->
+        <repository>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+    </repositories>
 
     <dependencies>
         <!--This adds the Spigot API artifact to the build -->
@@ -24,8 +32,15 @@
         </dependency>
     </dependencies>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
     <build>
-        <plugins>
+        <finalName>${artifactId}</finalName>
+        <!--<plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -34,8 +49,7 @@
                     <relocations>
                         <relocation>
                             <pattern>org.bstats</pattern>
-                            <!-- Replace this with your package! -->
-                            <shadedPattern>me.dreamvoid.template</shadedPattern>
+                            <shadedPattern>me.dreamvoid.explimit</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>
@@ -48,7 +62,7 @@
                     </execution>
                 </executions>
             </plugin>
-        </plugins>
+        </plugins> -->
     </build>
 
 </project>
