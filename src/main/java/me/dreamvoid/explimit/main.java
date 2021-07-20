@@ -1,5 +1,6 @@
 package me.dreamvoid.explimit;
 
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,12 +12,8 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static org.bukkit.Bukkit.getPluginManager;
-
 public class main extends JavaPlugin implements Listener {
-
     // 定义变量
-    public static YamlConfiguration config;
     private File logDir;
 
     @Override
@@ -32,23 +29,16 @@ public class main extends JavaPlugin implements Listener {
         // 加载配置文件
         File configure = new File(getDataFolder(), "config.yml");
         if(!(configure.exists())){ saveDefaultConfig(); }
-        config = YamlConfiguration.loadConfiguration(configure);
 
         logDir = new File(getDataFolder(),"logs");
-        if(!logDir.exists()){
-            logDir.mkdir();
-        }
-        getPluginManager().registerEvents(this,this);
-        // bStats统计
-        /*if(config.getBoolean("bStats", true)) {
-            int pluginId = 12127;
-            Metrics metrics = new Metrics(this, pluginId);
-        }*/
+        if(!logDir.exists()){ logDir.mkdir(); }
+
+        Bukkit.getPluginManager().registerEvents(this,this);
     }
 
     @EventHandler
     public void onPlayerExp(PlayerExpChangeEvent e){
-        if(e.getAmount()>0){
+        if(e.getAmount()>0 && getConfig().getInt("limit")>0){
             Date date = new Date(System.currentTimeMillis());
             SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
             File dateFile = new File(logDir,formatter.format(date)+".yml");
