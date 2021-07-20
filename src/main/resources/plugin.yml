@@ -1,0 +1,14 @@
+name: DreamVoid Bukkit Template
+author: DreamVoid
+description: DreamVoid Bukkit Template
+main: me.dreamvoid.template.main
+version: 1.0
+api-version: 1.16
+prefix: DreamVoidPlugin
+webside: dreamvoid.ml
+commands:
+  some-command:
+    description: some description
+permissions:
+  some.permission:
+    description: some description
