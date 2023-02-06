@@ -1,0 +1,8 @@
+name: ExpLimit
+author: DreamVoid
+description: 经验获取限制插件
+main: me.dreamvoid.explimit.main
+version: 1.0.1
+api-version: 1.13
+prefix: DreamVoidPlugin
+webside: https://github.com/DreamVoid
